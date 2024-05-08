@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html Lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="refresh" content="300  ; URL=http://127.0.0.1:5500/Index.html">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+        <title>Risevision Replacement</title>
+        <style>
+                .Day, .schoolDay, .logo{
+                    font-size: 50px;
+                    padding: 10px;
+                    display: inline-block;
+                }
+                .Day {
+                    background-color: rgb(56, 118, 29);
+                    border-style: solid;
+                    height: 140px;
+                    font-family: "Archivo Black", sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                }
+                .schoolDay {
+                    background-color: rgb(56, 118, 29);
+                    width: 350px;
+                    height: 140px;
+                    border-style: solid;
+                    text-align: center;
+                    font-family: "Archivo Black", sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                }
+                body {
+                    height: 770px;
+                    width: 1438px;
+                }
+                .logo {
+                    position: absolute;   
+                }
+        </style>
+        <script>
+            window.onload = function(){        
+            var daysOfMonth = new Date().getDate();
+            var current = new Date();
+            var month = new Date().getMonth();
+
+            var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+            
+            setInterval(function(){ document.getElementById('time').innerHTML = new Date().toLocaleDateString('en-us', { weekday:"long", hour:"2-digit", minute:"2-digit", second:"2-digit"})}, 750);
+
+            var lateStartCheck = new Date(new Date(current).setDate(current.getDate()+ 14))
+            var lateMonth = new Date(lateStartCheck).getMonth();
+            var lateDay = new Date(lateStartCheck).getDay();
+
+            var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+            var wek = days[new Date(lateStartCheck).getDay()];
+
+            var schedule = "Regular Day";
+
+            if((month = 12) & (lateStartCheck > 25)& (wek == "Wednesday")){
+                schedule = "Regular Day";
+            }
+            else if ((month = 6) || (month = 1)){
+                schedule = "Regular Day";
+            }
+            else if ((wek == "Wednesday")&(lateMonth == month + 1)){
+                schedule = "Late Start Day";
+            }
+            else{
+                schedule = "Regular Day";
+            }
+
+            document.getElementById('sched').innerHTML = schedule
+        }
+        </script>
+    </head>
+    <body>
+        <div class="slide" id="slide">
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQxAojQwnAY0Rz0VQnqT58E9FfEzP_WH1dd-f307E4ruPE3ESAFNVmSa5SdAqsPSyWaBflQpfgUUlis/embed?start=true&loop=true&delayms=3000" frameborder="0" width="1438" height="730" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        </div>
+            <div class ="Day" id="Day">
+                <p id="time"></p>
+            </div>
+            <div class ="schoolDay" id="schoolDay">
+                <p id="sched"></p>
+            </div>
+            <div class ="logo" id="logo">
+                <img src="Assets/EmbeddedImage.png" alt="">
+            </div>
+    </body>
+   
+    <!--
+function lateStart() {
+    var daysOfMonth = new Date().getDate();
+    var current = new Date();
+    var month = new Date().getMonth();
+            
+    var lateStartCheck = new Date(new Date(current).setDate(current.getDate()+ 14))
+    var lateMonth = new Date(lateStartCheck).getMonth();
+    var lateDay = new Date(lateStartCheck).getDay();
+
+    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var wek = days[new Date(lateStartCheck).getDay()];
+
+    const slides = SlidesApp.getActivePresentation();
+    const textBoxId3 = ["g26af0ada063_3_6","g26ad0d43957_2_8"];
+
+    for(var i = 0; i < slides.getSlides().length; i++){
+      const slide = slides.getSlides()[i];
+      for(var j = 0; j < textBoxId3.length; j++){
+        var textboxShape = null;
+      if(slide.getPageElementById(textBoxId3[j]) != null){
+        textboxShape = slide.getPageElementById(textBoxId3[j]).asShape(); 
+      const content = textboxShape.getText();
+
+      if((wek == "Wednesday")&(lateMonth == month + 1)){
+      content.setText("P1 : 10:00 - 11:00 AM                           P2 : 11:05 - 12:05 AM                                                                                                            Lunch: 12:05 - 1:05 PM                           P3 : 1:05 - 2:05 PM                          P4 : 2:10 - 3:15 PM");
+        }
+      else if((month = 6) || (month = 1)){
+        content.setText("P1 : 9:00 - 10:20 AM                           P2 : 10:25 - 11:40 AM                                                                                                            Lunch: 11:40 - 12:40 PM                           P3 : 12:40 - 1:55 PM                          P4 : 2:00 - 3:15 PM");
+      }
+      else if((month = 12) & (lateStartCheck > 25)& (wek == "Wednesday")){
+        content.setText("P1 : 10:00 - 11:00 AM                           P2 : 11:05 - 12:05 AM                                                                                                            Lunch: 12:05 - 1:05 PM                           P3 : 1:05 - 2:05 PM                          P4 : 2:10 - 3:15 PM");
+      }
+      else{
+        content.setText("P1 : 9:00 - 10:20 AM                           P2 : 10:25 - 11:40 AM                                                                                                            Lunch: 11:40 - 12:40 PM                           P3 : 12:40 - 1:55 PM                          P4 : 2:00 - 3:15 PM");
+          }
+        }
+      }
+    }
+  }
+
+
+
+            <div class ="schoolDay" id="schoolDay">
+                <p id="dayNum"></p>
+            </div>
+
+            var dog = "1"
+
+            if (daysOfMonth % 2 == 1){
+                var dog = "Day: 1";
+            }
+            else{
+                var dog = "Day: 2";
+            }
+                document.getElementById('dayNum').innerHTML = dog;
+
+    -->
