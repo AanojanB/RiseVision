@@ -9,10 +9,17 @@
         <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
         <title>Risevision Replacement</title>
         <style>
-                .Day, .schoolDay, .logo{
-                    font-size: 50px;
+                .Day, .schoolDay, .dayOneOrTwo, .logo{
+                    font-size: 40px;
                     padding: 10px;
                     display: inline-block;
+                }
+                .slide, .calendar{
+                    display: inline-block;
+                }
+                .calendar {
+                    height: 568px;
+                    width: 300px;
                 }
                 .Day {
                     background-color: rgb(56, 118, 29);
@@ -24,7 +31,17 @@
                 }
                 .schoolDay {
                     background-color: rgb(56, 118, 29);
-                    width: 350px;
+                    width: 320px;
+                    height: 140px;
+                    border-style: solid;
+                    text-align: center;
+                    font-family: "Archivo Black", sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                }
+                .dayOneOrTwo {
+                    background-color: rgb(56, 118, 29);
+                    width: 200px;
                     height: 140px;
                     border-style: solid;
                     text-align: center;
@@ -33,12 +50,11 @@
                     font-style: normal;
                 }
                 body {
-                    height: 770px;
-                    width: 1438px;
+                    
                 }
-                .logo {
+                /*.logo {
                     position: absolute;   
-                }
+                }*/
         </style>
         <script>
             window.onload = function(){        
@@ -48,7 +64,7 @@
 
             var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
             
-            setInterval(function(){ document.getElementById('time').innerHTML = new Date().toLocaleDateString('en-us', { weekday:"long", hour:"2-digit", minute:"2-digit", second:"2-digit"})}, 750);
+            setInterval(function(){ document.getElementById('time').innerHTML = new Date().toLocaleDateString('en-us', { weekday:"long", month:"short", day:"numeric", year:"numeric",hour:"2-digit", minute:"2-digit", second:"2-digit"})}, 750);
 
             var lateStartCheck = new Date(new Date(current).setDate(current.getDate()+ 14))
             var lateMonth = new Date(lateStartCheck).getMonth();
@@ -57,12 +73,20 @@
             var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
             var wek = days[new Date(lateStartCheck).getDay()];
 
-            var schedule = "Regular Day";
+            var schedule = "Late Start Day";
+
+            if (daysOfMonth % 2 == 1){
+                var schoolNum = "Day: 1";
+            }
+            else{
+                var schoolNum = "Day: 2";
+            }
+                document.getElementById('dayNum').innerHTML = schoolNum;
 
             if((month = 12) & (lateStartCheck > 25)& (wek == "Wednesday")){
                 schedule = "Regular Day";
             }
-            else if ((month = 6) || (month = 1)){
+            else if ((month == 6) || (month == 1)){
                 schedule = "Regular Day";
             }
             else if ((wek == "Wednesday")&(lateMonth == month + 1)){
@@ -78,7 +102,10 @@
     </head>
     <body>
         <div class="slide" id="slide">
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQxAojQwnAY0Rz0VQnqT58E9FfEzP_WH1dd-f307E4ruPE3ESAFNVmSa5SdAqsPSyWaBflQpfgUUlis/embed?start=true&loop=true&delayms=3000" frameborder="0" width="1438" height="730" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQxAojQwnAY0Rz0VQnqT58E9FfEzP_WH1dd-f307E4ruPE3ESAFNVmSa5SdAqsPSyWaBflQpfgUUlis/embed?start=true&loop=true&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        </div>
+        <div class="calendar" id="calendar">
+            <iframe src="https://calendar.google.com/calendar/embed?height=565&wkst=1&ctz=America%2FToronto&bgcolor=%23ffffff&showNav=0&showPrint=0&showTabs=0&mode=AGENDA&title=WTCS&src=ZW4uY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&src=dGRzYi5vbi5jYV9pdTg1a2t0aDZibHNwMnMwb2ZjbzR2dWNtZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%230B8043&color=%233F51B5" style="border-width:0" width="427" height="565" frameborder="0" scrolling="no"></iframe>
         </div>
             <div class ="Day" id="Day">
                 <p id="time"></p>
@@ -86,8 +113,11 @@
             <div class ="schoolDay" id="schoolDay">
                 <p id="sched"></p>
             </div>
-            <div class ="logo" id="logo">
+        <!--<div class ="logo" id="logo">
                 <img src="Assets/WTCS.png" alt="WTCS logo">
+            </div>-->
+            <div class ="dayOneOrTwo" id="dayOneOrTwo">
+                <p id="dayNum"></p>
             </div>
     </body>
    
