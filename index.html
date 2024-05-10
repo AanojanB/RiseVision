@@ -41,7 +41,7 @@
                 }
                 .dayOneOrTwo {
                     background-color: rgb(56, 118, 29);
-                    width: 200px;
+                    width: 245px;
                     height: 140px;
                     border-style: solid;
                     text-align: center;
@@ -49,9 +49,6 @@
                     font-weight: 400;
                     font-style: normal;
                 }
-                /*.logo {
-                    position: absolute;   
-                }*/
         </style>
         <script>
             window.onload = function(){        
@@ -110,69 +107,7 @@
             <div class ="schoolDay" id="schoolDay">
                 <p id="sched"></p>
             </div>
-        <!--<div class ="logo" id="logo">
-                <img src="Assets/WTCS.png" alt="WTCS logo">
-            </div>-->
             <div class ="dayOneOrTwo" id="dayOneOrTwo">
                 <p id="dayNum"></p>
             </div>
     </body>
-   
-    <!--
-function lateStart() {
-    var daysOfMonth = new Date().getDate();
-    var current = new Date();
-    var month = new Date().getMonth();
-            
-    var lateStartCheck = new Date(new Date(current).setDate(current.getDate()+ 14))
-    var lateMonth = new Date(lateStartCheck).getMonth();
-    var lateDay = new Date(lateStartCheck).getDay();
-
-    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    var wek = days[new Date(lateStartCheck).getDay()];
-
-    const slides = SlidesApp.getActivePresentation();
-    const textBoxId3 = ["g26af0ada063_3_6","g26ad0d43957_2_8"];
-
-    for(var i = 0; i < slides.getSlides().length; i++){
-      const slide = slides.getSlides()[i];
-      for(var j = 0; j < textBoxId3.length; j++){
-        var textboxShape = null;
-      if(slide.getPageElementById(textBoxId3[j]) != null){
-        textboxShape = slide.getPageElementById(textBoxId3[j]).asShape(); 
-      const content = textboxShape.getText();
-
-      if((wek == "Wednesday")&(lateMonth == month + 1)){
-      content.setText("P1 : 10:00 - 11:00 AM                           P2 : 11:05 - 12:05 AM                                                                                                            Lunch: 12:05 - 1:05 PM                           P3 : 1:05 - 2:05 PM                          P4 : 2:10 - 3:15 PM");
-        }
-      else if((month = 6) || (month = 1)){
-        content.setText("P1 : 9:00 - 10:20 AM                           P2 : 10:25 - 11:40 AM                                                                                                            Lunch: 11:40 - 12:40 PM                           P3 : 12:40 - 1:55 PM                          P4 : 2:00 - 3:15 PM");
-      }
-      else if((month = 12) & (lateStartCheck > 25)& (wek == "Wednesday")){
-        content.setText("P1 : 10:00 - 11:00 AM                           P2 : 11:05 - 12:05 AM                                                                                                            Lunch: 12:05 - 1:05 PM                           P3 : 1:05 - 2:05 PM                          P4 : 2:10 - 3:15 PM");
-      }
-      else{
-        content.setText("P1 : 9:00 - 10:20 AM                           P2 : 10:25 - 11:40 AM                                                                                                            Lunch: 11:40 - 12:40 PM                           P3 : 12:40 - 1:55 PM                          P4 : 2:00 - 3:15 PM");
-          }
-        }
-      }
-    }
-  }
-
-
-
-            <div class ="schoolDay" id="schoolDay">
-                <p id="dayNum"></p>
-            </div>
-
-            var dog = "1"
-
-            if (daysOfMonth % 2 == 1){
-                var dog = "Day: 1";
-            }
-            else{
-                var dog = "Day: 2";
-            }
-                document.getElementById('dayNum').innerHTML = dog;
-
-    -->
