@@ -1,0 +1,45 @@
+.Day, .schoolDay, .dayOneOrTwo, .logo{
+    font-size: 40px;
+    padding: 10px;
+    display: inline-block;
+}
+.slide, .calendar{
+    display: inline;
+}              
+.Day {
+    background-color: rgb(56, 118, 29);
+    border-style: solid;
+    height: 15.55vh;
+    width: 55.11vw;
+    text-align: center;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 250%;
+    font-style: normal;
+}
+.schoolDay {
+    background-color: rgb(56, 118, 29);
+    width: 20vw;
+    height: 15.55vh;
+    border-style: solid;
+    text-align: center;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 250%;
+    font-style: normal;
+}
+.dayOneOrTwo {
+    background-color: rgb(56, 118, 29);
+    width: 14.5vw;
+    height: 15.55vh;
+    border-style: solid;
+    text-align: center;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 250%;
+    font-style: normal;
+}
+.weatherwidget-io {
+    width: 95.5vw;
+}
+body {
+    height: 100vh;
+    width: 100vw;
+}

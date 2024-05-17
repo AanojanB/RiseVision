@@ -6,108 +6,17 @@
         <meta http-equiv="refresh" content="300  ; URL=http://127.0.0.1:5500/Index.html">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script type="text/javascript" src="script.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
         <title>Risevision Replacement</title>
-        <style>
-                .Day, .schoolDay, .dayOneOrTwo, .logo{
-                    font-size: 40px;
-                    padding: 10px;
-                    display: inline-block;
-                }
-                .slide, .calendar{
-                    display: inline;
-                }              
-                .Day {
-                    background-color: rgb(56, 118, 29);
-                    border-style: solid;
-                    height: 15.55vh;
-                    width: 61.11vw;
-                    text-align: center;
-                    font-family: "Archivo Black", sans-serif;
-                    font-weight: 400;
-                    font-style: normal;
-                }
-                .schoolDay {
-                    background-color: rgb(56, 118, 29);
-                    width: 20vw;
-                    height: 15.55vh;
-                    border-style: solid;
-                    text-align: center;
-                    font-family: "Archivo Black", sans-serif;
-                    font-weight: 400;
-                    font-style: normal;
-                }
-                .dayOneOrTwo {
-                    background-color: rgb(56, 118, 29);
-                    width: 10vw;
-                    height: 15.55vh;
-                    border-style: solid;
-                    text-align: center;
-                    font-family: "Archivo Black", sans-serif;
-                    font-weight: 400;
-                    font-style: normal;
-                }
-                .weatherwidget-io {
-                    width: 96.44vw;
-                }
-                body {
-                    height: 100vh;
-                    width: 100vw;
-                }
-        </style>
-        <script>
-            window.onload = function(){        
-            var daysOfMonth = new Date().getDate();
-            var current = new Date();
-            var month = new Date().getMonth();
-
-            var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-            
-            setInterval(function(){ document.getElementById('time').innerHTML = new Date().toLocaleDateString('en-us', { weekday:"long", month:"short", day:"numeric", year:"numeric",hour:"2-digit", minute:"2-digit", second:"2-digit"})}, 750);
-
-            var lateStartCheck = new Date(new Date(current).setDate(current.getDate()+ 14))
-            var lateMonth = new Date(lateStartCheck).getMonth();
-            var lateDay = new Date(lateStartCheck).getDay();
-
-            var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-            var wek = days[new Date(lateStartCheck).getDay()];
-
-            var schedule = "Late Start Day";
-
-            if (daysOfMonth % 2 == 1){
-                var schoolNum = "Day: 1";
-            }
-            else{
-                var schoolNum = "Day: 2";
-            }
-                document.getElementById('dayNum').innerHTML = schoolNum;
-
-            if((month = 12) & (lateStartCheck > 25)& (wek == "Wednesday")){
-                schedule = "Regular Day";
-            }
-            else if ((month == 6) || (month == 1)){
-                schedule = "Regular Day";
-            }
-            else if ((wek == "Wednesday")&(lateMonth == month + 1)){
-                schedule = "Late Start Day";
-            }
-            else{
-                schedule = "Regular Day";
-            }
-
-            document.getElementById('sched').innerHTML = schedule
-        }
-
-        //Weather script embed from https://weatherwidget.io/
-        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-        </script>
     </head>
     <body>
         <div class="slide" id="slide">
             <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQxAojQwnAY0Rz0VQnqT58E9FfEzP_WH1dd-f307E4ruPE3ESAFNVmSa5SdAqsPSyWaBflQpfgUUlis/embed?start=true&loop=true&delayms=3000" frameborder="0" width="66%" height="63%" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
         </div>
         <div class="calendar" id="calendar">
-            <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FToronto&bgcolor=%23ffffff&mode=AGENDA&title=WTCS&showNav=0&showDate=0&showPrint=0&showTabs=0&showTz=0&src=Y180NzM1NThjZDk4YzQwYTcyMWU5ZmQ4NDEyYTJiOGIwZDA3ZjA4MDFhYjYwMzdlZWIwYmJmNDA0MjFmMmExNDBkQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZW4uY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&src=dGRzYi5vbi5jYV9pdTg1a2t0aDZibHNwMnMwb2ZjbzR2dWNtZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23F6BF26&color=%230B8043&color=%233F51B5" style="border:solid 1px #777" width="29%" height="64%" frameborder="0" scrolling="no"></iframe>
+            <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FToronto&bgcolor=%23ffffff&mode=AGENDA&title=WTCS&showNav=0&showDate=0&showPrint=0&showTabs=0&showTz=0&src=Y180NzM1NThjZDk4YzQwYTcyMWU5ZmQ4NDEyYTJiOGIwZDA3ZjA4MDFhYjYwMzdlZWIwYmJmNDA0MjFmMmExNDBkQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZW4uY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&src=dGRzYi5vbi5jYV9pdTg1a2t0aDZibHNwMnMwb2ZjbzR2dWNtZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23F6BF26&color=%230B8043&color=%233F51B5" style="border:solid 1px #777" width="29%" height="63%" frameborder="0" scrolling="no"></iframe>
         </div>
             <div class ="Day" id="Day">
                 <p id="time"></p>
