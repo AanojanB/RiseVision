@@ -13,7 +13,8 @@
     width: 55.11vw;
     text-align: center;
     font-family: "Archivo Black", sans-serif;
-    font-size: 250%;
+    font-size: 2.8vw;
+    font-size: 5vh;
     font-style: normal;
 }
 .schoolDay {
@@ -23,8 +24,9 @@
     border-style: solid;
     text-align: center;
     font-family: "Archivo Black", sans-serif;
-    font-size: 250%;
     font-style: normal;
+    font-size: 2.8vw;
+    font-size: 5vh;
 }
 .dayOneOrTwo {
     background-color: rgb(56, 118, 29);
@@ -33,8 +35,9 @@
     border-style: solid;
     text-align: center;
     font-family: "Archivo Black", sans-serif;
-    font-size: 250%;
     font-style: normal;
+    font-size: 2.8vw;
+    font-size: 5vh;
 }
 .weatherwidget-io {
     width: 95.5vw;
