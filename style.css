@@ -38,6 +38,9 @@
     font-size: 2.8vw;
     font-size: 4.4vh;
 }
+.logo-plus-button {
+    display: none;
+}
 .weatherwidget-io {
     width: 99vw;
 }
