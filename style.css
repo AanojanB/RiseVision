@@ -1,5 +1,4 @@
 .Day, .schoolDay, .dayOneOrTwo, .logo{
-    font-size: 40px;
     padding: 10px;
     display: inline-block;
 }
@@ -14,7 +13,7 @@
     text-align: center;
     font-family: "Archivo Black", sans-serif;
     font-size: 2.8vw;
-    font-size: 5vh;
+    font-size: 4.4vh;
     font-style: normal;
 }
 .schoolDay {
@@ -26,23 +25,25 @@
     font-family: "Archivo Black", sans-serif;
     font-style: normal;
     font-size: 2.8vw;
-    font-size: 5vh;
+    font-size: 4.4vh;
 }
 .dayOneOrTwo {
     background-color: rgb(56, 118, 29);
-    width: 14.5vw;
+    width: 17.9vw;
     height: 15.55vh;
     border-style: solid;
     text-align: center;
     font-family: "Archivo Black", sans-serif;
     font-style: normal;
     font-size: 2.8vw;
-    font-size: 5vh;
+    font-size: 4.4vh;
 }
 .weatherwidget-io {
-    width: 95.5vw;
+    width: 99vw;
 }
 body {
     height: 100vh;
     width: 100vw;
+    overflow-x: hidden; 
+    overflow-y: hidden;
 }
