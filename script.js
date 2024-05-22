@@ -1,44 +1,57 @@
 window.onload = function(){        
-    var daysOfMonth = new Date().getDate();
-    var current = new Date();
-    var month = new Date().getMonth();
+    var currentDay = new Date().getDate(); //Gets the day number
+    var current = new Date(); //Gets the current date and time
+    var month = new Date().getMonth(); //Gets the current month
 
-    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    //Creates the formating for another variable make the day number into days of the week
+    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']; 
     
-    setInterval(function(){ document.getElementById('time').innerHTML = new Date().toLocaleDateString('en-us', { weekday:"long", month:"short", day:"numeric", year:"numeric",hour:"2-digit", minute:"2-digit", second:"2-digit"})}, 750);
+    //setInterval will update the function in it every 750ms
+    //function will contain the Id of the date which is formatted to be weekday, month, day number, year, and time with hour:min
+    setInterval(function(){ document.getElementById('time').innerHTML = new Date().toLocaleDateString('en-us', { weekday:"long", month:"short", day:"numeric", year:"numeric",hour:"2-digit", minute:"2-digit"})}, 750);
 
+    //Variable that adds 14 days to the current day to determine if its late start
     var lateStartCheck = new Date(new Date(current).setDate(current.getDate()+ 14))
+    //Variable that gets the month of lateStartCheck month
     var lateMonth = new Date(lateStartCheck).getMonth();
-    var lateDay = new Date(lateStartCheck).getDay();
 
-    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    var wek = days[new Date(lateStartCheck).getDay()];
+    //Gets the weekday of the lateStartCheck variable
+    var week = days[new Date(lateStartCheck).getDay()];
 
+    //Variable that is intialized and assigned value to get into if statement
     var schedule = "Late Start Day";
 
-    if (daysOfMonth % 2 == 1){
+    //current day number % 2 will either one or zero
+    //One equals day 1 and 0 equal day 2
+    if (currentDay % 2 == 1){
         var schoolNum = "Day: 1";
     }
     else{
         var schoolNum = "Day: 2";
     }
-        document.getElementById('dayNum').innerHTML = schoolNum;
+    //Makes the variable useable in html
+    document.getElementById('dayNum').innerHTML = schoolNum;
 
-    if((month = 12) & (lateStartCheck > 25)& (wek == "Wednesday")){
-        schedule = "Regular Day";
+    //December special case due to  winter break
+    if((month = 12) & (lateStartCheck > 25)& (week == "Wednesday")){
+        schedule = "Late Start Day";
     }
+    //Special case exams
     else if ((month == 6) || (month == 1)){
         schedule = "Regular Day";
     }
-    else if ((wek == "Wednesday")&(lateMonth == month + 1)){
+    //Late Start will meet the conditions
+    else if ((week == "Wednesday")&(lateMonth == month + 1)){
         schedule = "Late Start Day";
     }
-    else{
-        schedule = "Regular Day";
+    //Has to be wednesday to be a late start
+    else if ((week != "Wednesday")){
+        schedule = "Regular Day ";
     }
 
-    document.getElementById('sched').innerHTML = schedule
+    document.getElementById('sched').innerHTML = schedule;
 }
+
 
 //Weather script embed from https://weatherwidget.io/
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');

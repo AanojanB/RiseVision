@@ -1,52 +1,48 @@
-.Day, .schoolDay, .dayOneOrTwo, .logo{
-    padding: 10px;
-    display: inline-block;
+.Day, .schoolDay, .dayOneOrTwo {
+    display: inline-block; /*Makes the classes be aligned*/
 }
 .slide, .calendar{
-    display: inline;
+    display: inline; /*Makes the google slide and calendar be aligned*/
 }              
 .Day {
-    background-color: rgb(56, 118, 29);
+    background-color: rgb(56, 118, 29); /*WTCS Green*/
     border-style: solid;
-    height: 15.55vh;
-    width: 55.11vw;
-    text-align: center;
+    height: 15.55vh; /*Height all the same for different classes*/
+    width: 59vw;
+    text-align: center; /*Centers the text*/
     font-family: "Archivo Black", sans-serif;
     font-size: 2.8vw;
-    font-size: 4.4vh;
+    font-size: 4.5vh;
     font-style: normal;
 }
 .schoolDay {
     background-color: rgb(56, 118, 29);
-    width: 20vw;
+    width: 25vw;
     height: 15.55vh;
     border-style: solid;
     text-align: center;
     font-family: "Archivo Black", sans-serif;
     font-style: normal;
     font-size: 2.8vw;
-    font-size: 4.4vh;
+    font-size: 4.5vh;
 }
 .dayOneOrTwo {
     background-color: rgb(56, 118, 29);
-    width: 17.9vw;
+    width: 13vw;
     height: 15.55vh;
     border-style: solid;
     text-align: center;
     font-family: "Archivo Black", sans-serif;
     font-style: normal;
     font-size: 2.8vw;
-    font-size: 4.4vh;
-}
-.logo-plus-button {
-    display: none;
+    font-size: 4.5vh;
 }
 .weatherwidget-io {
-    width: 99vw;
+    width: 98.8vw;
 }
 body {
     height: 100vh;
     width: 100vw;
-    overflow-x: hidden; 
-    overflow-y: hidden;
+    overflow-x: hidden; /*Makes the website fit to the tab size in the x direction*/
+    overflow-y: hidden; /*Makes the website fit to the tab size in the y direction*/
 }
