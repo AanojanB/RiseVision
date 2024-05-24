@@ -48,7 +48,7 @@ window.onload = function(){
     else if ((week != "Wednesday")){
         schedule = "Regular Day ";
     }
-
+    
     document.getElementById('sched').innerHTML = schedule;
 }
 
