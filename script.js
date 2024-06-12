@@ -33,7 +33,7 @@ window.onload = function(){
     document.getElementById('dayNum').innerHTML = schoolNum;
 
     //December special case due to  winter break
-    if((month = 12) & (lateStartCheck > 25)& (week == "Wednesday")){
+    if((month == 12) & (lateStartCheck > 25)&& (week == "Wednesday")){
         schedule = "Late Start Day";
     }
     //Special case exams
