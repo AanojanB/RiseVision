@@ -8,7 +8,7 @@ window.onload = function(){
     
     //setInterval will update the function in it every 750ms
     //function will contain the Id of the date which is formatted to be weekday, month, day number, year, and time with hour:min
-    setInterval(function(){ document.getElementById('time').innerHTML = new Date().toLocaleDateString('en-us', { weekday:"long", month:"short", day:"numeric", year:"numeric",hour:"2-digit", minute:"2-digit"})}, 750);
+    setInterval(function(){ document.getElementById('time').innerHTML = new Date().toLocaleDateString('en-us', { weekday:"long", month:"short", day:"numeric", year:"numeric",hour:"2-digit", minute:"2-digit"})}, 500);
 
     //Variable that adds 14 days to the current day to determine if its late start
     var lateStartCheck = new Date(new Date(current).setDate(current.getDate()+ 14))
